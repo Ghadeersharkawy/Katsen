@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import CatsList from './components/cats-list.component';
+import CatsList from './components/cats-list/cats-list.component';
 
 function App() {
   const [cats, setCats] = useState([]);
@@ -13,11 +13,12 @@ function App() {
 
 
   return (
-    <div className="App">
-
+    <div className='app'>
 
       <CatsList cats={cats} />
+
     </div>
+
   );
 }
 
