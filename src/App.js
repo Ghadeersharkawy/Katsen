@@ -4,6 +4,9 @@ import CatsList from './components/cats-list/cats-list.component';
 
 function App() {
   const [cats, setCats] = useState([]);
+  const [searchvalue, setSearchvalue] = useState('');
+  const [filteredCats, setFilteredCats] = useState(cats);
+
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
@@ -11,11 +14,28 @@ function App() {
 
   }, [])
 
+  useEffect(() => {
+    const filteredCats = cats.filter((cat) => {
+      return cat.name.toLowerCase().includes(searchvalue);
+    })
+    setFilteredCats(filteredCats);
+  }, [searchvalue])
+  const searchHandel = (event) => {
+    const searchString = event.target.value.toLowerCase();
+    setSearchvalue(searchString);
+    console.log(searchString);
+    console.log('filteredCats', filteredCats);
+  }
 
   return (
     <div className='app'>
-
-      <CatsList cats={cats} />
+      <h1>Sweet Cats</h1>
+      <input
+        className='search-box'
+        type="search"
+        placeholder='Search Cats'
+        onChange={searchHandel} />
+      <CatsList cats={filteredCats} />
 
     </div>
 

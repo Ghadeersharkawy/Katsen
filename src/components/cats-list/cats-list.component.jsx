@@ -6,7 +6,7 @@ const CatsList = ({ cats }) => {
         <div className="card-list">
             {cats.map((cat) => {
                 return (
-                    <CatDetails cat={cat} />
+                    <CatDetails cat={cat} key={cat.id} />
                 )
             })
 
