@@ -1,3 +1,5 @@
+import './search.style.css'
+
 const Search = ({ searchHandel }) => {
     return (
         <input

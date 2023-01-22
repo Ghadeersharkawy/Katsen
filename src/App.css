@@ -6,7 +6,12 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%
 text-align: center;
 min-height: 100vh;
 background-attachment: fixed;
+font-family: 'Oswald', sans-serif;
 }
 .app {
   text-align: center;
+}
+h1{
+  font-size: 50px;
+    color: #fff;
 }
